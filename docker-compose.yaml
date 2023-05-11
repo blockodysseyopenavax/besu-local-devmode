@@ -2,6 +2,8 @@ services:
   besu-dev:
     image: hyperledger/besu
     container_name: besu-dev
+    volumes:
+      - besu-dev-database:/opt/besu/database:rw
     ports:
       - "8545:8545"
       - "8546:8546"
@@ -18,3 +20,7 @@ services:
         "--miner-coinbase",
         "0x28fb346214e844775650718c694a83de2e109644",
       ]
+
+volumes:
+  besu-dev-database:
+    external: true

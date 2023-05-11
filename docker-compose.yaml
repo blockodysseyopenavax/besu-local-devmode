@@ -1,0 +1,20 @@
+services:
+  besu-dev:
+    image: hyperledger/besu
+    container_name: besu-dev
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+    network_mode: bridge # to use the default `bridge` network
+    command:
+      [
+        "--network=dev",
+        "--rpc-http-enabled",
+        "--rpc-http-cors-origins=all",
+        "--rpc-ws-enabled",
+        "--host-allowlist=*",
+        "--min-gas-price=0",
+        "--miner-enabled",
+        "--miner-coinbase",
+        "0x28fb346214e844775650718c694a83de2e109644",
+      ]

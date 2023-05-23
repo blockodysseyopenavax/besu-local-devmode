@@ -2,16 +2,20 @@
 
 Run besu local node in devmode via docker.
 
-## Requirements
+## Getting Started
 
-- curl
+### Requirements
+
 - docker
+- curl
 
-## Usage
+### Usage
 
-### Run the node
+1. Start the node _besu-dev_ by
 
-1. Start the node _besu-dev_ by `docker compose up`.
+   ```Bash
+   docker compose up
+   ```
 
 2. Check if node is working using curl:
 
@@ -22,21 +26,37 @@ Run besu local node in devmode via docker.
    Or use foundry's cast:
 
    ```Bash
+   # general rpc
    cast rpc eth_blockNumber
+
+   # blockNumber
+   cast block-number
    ```
 
-3. Clean up by `docker compose down`.
+3. Clean up by
 
-### Persist node's state
+   ```Bash
+   docker compose down
+   ```
 
-1. Create docker volume _besu-dev-database_ by `sh create-volume.sh`.
+#### Persist node's state
 
-2. Remove the comments in docker-compose.yaml and run node by `docker compose up`.
+1. Create docker volume _besu-dev-database_ by
 
-3. To clean up the volume, run
+   ```Bash
+   # ./create-volume.sh
+   docker volume create besu-dev-database
+   docker run --rm -v besu-dev-database:/opt/besu/database:rw ubuntu /bin/sh -c "useradd besu && chown besu:besu /opt/besu/database"
+   ```
+
+2. Remove all comments in `docker-compose.yaml` then run the node.
+
+3. To clean up the volume after shutting down, run
 
    ```Bash
    docker volume rm besu-dev-database
    ```
 
-   after `docker compose down`.
+#### Get mining reward
+
+Replace `--miner-coinbase` address with yours.

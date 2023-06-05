@@ -60,3 +60,24 @@ Run besu local node in devmode via docker.
 #### Get mining reward
 
 Replace `--miner-coinbase` address with yours.
+
+## Block Explorer
+
+[Sirato free plan](https://github.com/web3labs/sirato-free) is used as block explorer for the network.
+Sirato instance is configured to connect to `besu-dev`.
+For simplicity, we use its own docker compose.
+
+To start a sirato instance (in detached mode), run
+
+```Bash
+sh sirato-up.sh
+```
+
+After few minutes, it will be available at [localhost:80](http://localhost:80).
+If port collision happens, change sirato's port in `sirato-up.sh` then re-run it.
+
+To clean up, run
+
+```Bash
+sh sirato-down.sh
+```

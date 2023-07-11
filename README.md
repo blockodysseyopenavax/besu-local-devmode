@@ -7,7 +7,6 @@ Run besu local node in devmode via docker.
 ### Requirements
 
 - docker
-- curl
 
 ### Usage
 
@@ -17,29 +16,29 @@ Run besu local node in devmode via docker.
    docker compose up
    ```
 
-2. Check if node is working using curl:
+2. Check if node is working by `curl` or `cast`:
 
    ```Bash
    curl localhost:8545 -XPOST -d '{"jsonrpc":"2.0","id":1,"method":"eth_blockNumber"}'
    ```
 
-   Or use foundry's cast:
-
    ```Bash
-   # general rpc
    cast rpc eth_blockNumber
-
-   # blockNumber
-   cast block-number
    ```
 
-3. Clean up by
+3. Clean up the node by
 
    ```Bash
    docker compose down
    ```
 
-#### Persist node's state
+#### Get mining reward
+
+To get mined ETH to your account, replace `--miner-coinbase` address in `config.toml`.
+
+#### Persist node state
+
+To persist node state,
 
 1. Create docker volume _besu-dev-database_ by
 
@@ -56,10 +55,6 @@ Run besu local node in devmode via docker.
    ```Bash
    docker volume rm besu-dev-database
    ```
-
-#### Get mining reward
-
-Replace `--miner-coinbase` address with yours.
 
 ## Block Explorer
 

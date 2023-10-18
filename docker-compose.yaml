@@ -1,6 +1,6 @@
 services:
   besu-dev:
-    image: hyperledger/besu
+    image: hyperledger/besu:${TAG:-latest}
     container_name: besu-dev
     configs:
       - source: config.toml

@@ -16,6 +16,13 @@ Run besu in local devmode.
    docker compose up
    ```
 
+   To run a specific verison of besu, pass env variable `TAG`. For example,
+
+   ```Bash
+   TAG=23.4.0 docker compose up
+   ```
+
+
 2. Check if node is working by `curl`:
 
    ```Bash

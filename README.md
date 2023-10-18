@@ -34,24 +34,29 @@ Run besu in local devmode.
    docker compose down
    ```
 
-#### Getting Mining Rewards
+### Getting Mining Rewards
 
 In `config.toml`, change `--miner-coinbase` to your account's address.
 
-## Block Explorer
+### Attaching Block Explorer
 
-[Sirato free plan](https://github.com/web3labs/sirato-free) is used as block explorer for the network.
-Sirato instance is configured to connect to `besu-dev`.
-For simplicity, we use its own docker compose.
+[Sirato free plan](https://github.com/web3labs/sirato-free) is free version of Sirato block explorer.
+By using its own docker compose, we can spin up an instance connected to `besu-dev`.
 
-To start a sirato instance, open another terminal and run
+First, install the git submodule _sirato-free_ by
+
+```Bash
+git submodule update
+```
+
+Then run the start script for Sirato by
 
 ```Bash
 sh sirato-up.sh
 ```
 
 After few minutes, it will be available at [localhost:8080](http://localhost:8080).
-If port collision happens, change sirato's port in `sirato-up.sh` then re-run it.
+If port collision happens, change sirato `PORT` in `sirato-up.sh`.
 
 To clean up, run
 

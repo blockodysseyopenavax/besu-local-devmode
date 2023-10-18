@@ -1,50 +1,64 @@
+# minimal sensible defaults for local dev purposes
 # https://besu.hyperledger.org/stable/public-networks/reference/cli/options
 
-# node
+# devmode
 network = "dev"
-host-allowlist = ["*"]
 miner-enabled = true
 miner-coinbase = "0x28fb346214e844775650718c694a83de2e109644"
 min-gas-price = 0
-#logging="INFO" ## default
 
-# jsonrpc http
+# node
+data-path = "/opt/besu/database" # default of besu docker image
+host-allowlist = ["*"]
+logging = "INFO"                 # default
+
+# rpc http
 rpc-http-enabled = true
-rpc-http-host = "0.0.0.0"
-#rpc-http-port=8545 ## default
+rpc-http-host = "127.0.0.1" # default
+rpc-http-port = 8545 # default
 rpc-http-api = [
   "ETH",
   "NET",
   "WEB3",
   "ADMIN",
+  "CLIQUE",
   "DEBUG",
   "EEA",
   "IBFT",
+  "MINER",
   "PERM",
+  "PLUGINS",
   "PRIV",
   "QBFT",
+  "TRACE",
+  "TXPOOL",
 ]
 rpc-http-cors-origins = ["*"]
 
-# jsonrpc ws
+# rpc ws
 rpc-ws-enabled = true
-rpc-ws-host = "0.0.0.0"
-#rpc-ws-port=8546 ## default
+rpc-ws-host = "127.0.0.1" # default
+rpc-ws-port = 8546 # default
 rpc-ws-api = [
   "ETH",
   "NET",
   "WEB3",
   "ADMIN",
+  "CLIQUE",
   "DEBUG",
   "EEA",
   "IBFT",
+  "MINER",
   "PERM",
+  "PLUGINS",
   "PRIV",
   "QBFT",
+  "TRACE",
+  "TXPOOL",
 ]
 
-# graphql http
-#graphql-http-enabled=false ## default
-#graphql-http-host="0.0.0.0"
-#graphql-http-port=8547 #default
-#graphql-http-cors-origins=["*"]
+# graphql
+graphql-http-enabled = true
+graphql-http-host = "127.0.0.1"   # default
+graphql-http-port = 8547          # default
+graphql-http-cors-origins = ["*"]

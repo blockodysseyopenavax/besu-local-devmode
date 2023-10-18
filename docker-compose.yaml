@@ -6,8 +6,9 @@ services:
       - source: config.toml
         target: /opt/besu/config.toml
     ports:
-      - "8545:8545" # http
-      - "8546:8546" # ws
+      - "127.0.0.1:8545:8545" # rpc http
+      - "127.0.0.1:8546:8546" # rpc ws
+      - "127.0.0.1:8547:8547" # graphql
     command: ["--config-file=/opt/besu/config.toml"]
 
 configs:

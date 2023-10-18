@@ -1,6 +1,6 @@
 # Besu Local Devmode
 
-Run besu local node in devmode via docker.
+Run besu in local devmode.
 
 ## Getting Started
 
@@ -10,17 +10,19 @@ Run besu local node in devmode via docker.
 
 ### Usage
 
-1. Start the node _besu-dev_ by
+1. Start the container _besu-dev_ by
 
    ```Bash
    docker compose up
    ```
 
-2. Check if node is working by `curl` or `cast`:
+2. Check if node is working by `curl`:
 
    ```Bash
    curl localhost:8545 -XPOST -d '{"jsonrpc":"2.0","id":1,"method":"eth_blockNumber"}'
    ```
+
+   or `cast`:
 
    ```Bash
    cast rpc eth_blockNumber
@@ -32,9 +34,9 @@ Run besu local node in devmode via docker.
    docker compose down
    ```
 
-#### Get mining reward
+#### Getting Mining Rewards
 
-To get mined ETH to your account, replace `--miner-coinbase` address in `config.toml`.
+In `config.toml`, change `--miner-coinbase` to your account's address.
 
 ## Block Explorer
 

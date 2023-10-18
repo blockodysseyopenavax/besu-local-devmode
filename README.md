@@ -36,26 +36,6 @@ Run besu local node in devmode via docker.
 
 To get mined ETH to your account, replace `--miner-coinbase` address in `config.toml`.
 
-#### Persist node state
-
-To persist node state,
-
-1. Create docker volume _besu-dev-database_ by
-
-   ```Bash
-   # ./create-volume.sh
-   docker volume create besu-dev-database
-   docker run --rm -v besu-dev-database:/opt/besu/database:rw ubuntu /bin/sh -c "useradd besu && chown besu:besu /opt/besu/database"
-   ```
-
-2. Remove all comments in `docker-compose.yaml` then run the node.
-
-3. To clean up the volume after shutting down, run
-
-   ```Bash
-   docker volume rm besu-dev-database
-   ```
-
 ## Block Explorer
 
 [Sirato free plan](https://github.com/web3labs/sirato-free) is used as block explorer for the network.

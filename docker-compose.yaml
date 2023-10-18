@@ -5,19 +5,11 @@ services:
     configs:
       - source: config.toml
         target: /opt/besu/config.toml
-    #volumes:
-    #  - besu-dev-database:/opt/besu/database:rw
     ports:
       - "8545:8545" # http
       - "8546:8546" # ws
-    command: [
-      "--config-file=/opt/besu/config.toml"
-    ]
+    command: ["--config-file=/opt/besu/config.toml"]
 
 configs:
   config.toml:
     file: ./config.toml
-
-#volumes:
-#  besu-dev-database:
-#    external: true

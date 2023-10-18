@@ -41,7 +41,7 @@ In `config.toml`, change `--miner-coinbase` to your account's address.
 ### Attaching Block Explorer
 
 [Sirato free plan](https://github.com/web3labs/sirato-free) is free version of Sirato block explorer.
-By using its own docker compose, we can spin up an instance connected to `besu-dev`.
+We will spin up one which is connected to `besu-dev`.
 
 First, install the git submodule _sirato-free_ by
 

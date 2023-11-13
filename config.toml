@@ -1,16 +1,17 @@
 # minimal sensible defaults for local dev purposes
 # https://besu.hyperledger.org/stable/public-networks/reference/cli/options
 
-# devmode
+# network
 network = "dev"
 miner-enabled = true
 miner-coinbase = "0x28fb346214e844775650718c694a83de2e109644"
 min-gas-price = 0
 
 # node
-data-path = "/opt/besu/database" # default of besu docker image
+data-path = "/opt/besu/database"        # default of besu docker image
+node-private-key-file = "/opt/besu/key" # default of besu docker image
 host-allowlist = ["*"]
-logging = "INFO"                 # default
+logging = "INFO"                        # default
 
 # rpc http
 rpc-http-enabled = true

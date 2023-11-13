@@ -9,7 +9,12 @@ services:
       - "127.0.0.1:8545:8545" # rpc-http
       - "127.0.0.1:8546:8546" # rpc-ws
       - "127.0.0.1:8547:8547" # graphql-http
-    command: ["--config-file=/opt/besu/config.toml"]
+    command: [
+        "--config-file=/opt/besu/config.toml",
+        # "--rpc-http-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--rpc-ws-host=0.0.0.0", # bug: config.toml value is ignored
+        # "--graphql-http-host=0.0.0.0", # bug: config.toml value is ignored
+      ]
 
 configs:
   config.toml:

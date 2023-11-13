@@ -10,6 +10,7 @@ services:
       - "127.0.0.1:8546:8546" # rpc-ws
       - "127.0.0.1:8547:8547" # graphql-http
       - "127.0.0.1:8551:8551" # engine-rpc
+      - "127.0.0.1:9545:9545" # metrics
     command: [
         "--config-file=/opt/besu/config.toml",
         # "--rpc-http-host=0.0.0.0", # bug: config.toml value is ignored

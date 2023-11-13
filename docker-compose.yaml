@@ -1,7 +1,7 @@
 services:
   besu-dev:
     image: hyperledger/besu:${TAG:-23.10.0}
-    container_name: besu-dev
+    container_name: besu
     configs:
       - source: config.toml
         target: /opt/besu/config.toml
